@@ -1,22 +1,16 @@
-import React from "react";
-import { defaultTheme } from "theme";
-import { ThemeProvider } from "@material-ui/core/styles";
-import { CssBaseline } from "@material-ui/core";
-import { Provider as ReduxProvider } from "react-redux";
-import store from "store";
-import Table from "components/table";
-
+import React, { useEffect, useState } from "react";
+import Table from "./table";
+import { loadObjects } from "services";
+import { ElementTable } from "models";
 
 const App = () => {
-
-  return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <ReduxProvider store={store}>
-        <Table />
-      </ReduxProvider>
-    </ThemeProvider>
-  );
+  const [tableElements, setTableElements] = useState<ElementTable[]>([]);
+  useEffect(() => {
+    loadObjects().then((response) => {
+      setTableElements(response);
+    });
+  }, []);
+  return <>{tableElements.length && <Table elements={tableElements} />}</>;
 };
 
 export default App;
