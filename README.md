@@ -10,4 +10,4 @@
 Предварительно установите зависимости
 
 ### Demo
-Выглядит приложение вот так [https://overgame-7acdc.web.app/](https://overgame-7acdc.web.app/).
+Выглядит приложение вот так [https://crazy-panda-task-table.web.app/](https://crazy-panda-task-table.web.app/).
